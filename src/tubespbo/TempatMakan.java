@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author shinchank
+ * @author Kelompok 8 Tubes PBO
  */
 public class TempatMakan {
     private String nama;
@@ -21,20 +21,42 @@ public class TempatMakan {
     public TempatMakan(){
         
     }
+    
+    /**
+     * Constructor Tempat makan yang berisi parameter berikut:
+     * @param nama
+     * @param alamat
+     * @param noTelp 
+     */
 
     public TempatMakan(String nama, String alamat, String noTelp) {
         this.nama = nama;
         this.alamat = alamat;
         this.noTelp = noTelp;
     }
+    
+    /**
+     * 
+     * @return Nama
+     */
 
     public String getNama() {
         return nama;
     }
+    
+    /**
+     * 
+     * @return Alamat
+     */
 
     public String getAlamat() {
         return alamat;
     }
+    
+    /**
+     * 
+     * @return Nomor Telepon
+     */
 
     public String getNoTelp() {
         return noTelp;
@@ -43,23 +65,51 @@ public class TempatMakan {
     public void setNama(String nama) {
         this.nama = nama;
     }
+    
+    /**
+     * 
+     * @param alamat 
+     */
 
     public void setAlamat(String alamat) {
         this.alamat = alamat;
     }
+    
+    /**
+     * 
+     * @param noTelp 
+     */
 
     public void setNoTelp(String noTelp) {
         this.noTelp = noTelp;
     }
     
+    /**
+     * Method ini berfungsi untuk menambahkan makanan.
+     * @param m 
+     */
+    
     public void addMakanan(Makanan m){
         makanan.add(m);
     }
+    
+    /**
+     * Method ini berfungsi untuk mengedit makanan, yang sudah pernah terdata sebelumnya di aplikasi patungan.
+     * @param m
+     * @param mx 
+     */
     
     public void editMakanan(Makanan m, Makanan mx){
         int idx = makanan.lastIndexOf(mx);
         makanan.set(idx, m);
     }
+    
+    /**
+     * Method ini berfungsi untuk mencari makanan yang ada pada satu tempat makan.
+     * Dengan cara menginputkan nama.
+     * @param nama
+     * @return 
+     */
     
     public Makanan cariMakanan(String nama){
         Makanan result = null;
@@ -70,6 +120,11 @@ public class TempatMakan {
         }
         return result;
     }
+    
+    /**
+     * Method ini berfungsi untuk menampilkan daftar makanan yang ada pada satu tempat makan.
+     * @return 
+     */
     
     public String[] getListMakanan(){
         String[] result = new String[makanan.size()];
@@ -83,11 +138,23 @@ public class TempatMakan {
         return result;
     }
     
+    /**
+     * Method ini berfungsi untuk mengembalikan/menampilkan kembali
+     * Nama, alamat dan nomor telepon
+     * @return 
+     */
+    
     public String toString(){
         return "Nama    : "+nama
                 +"\nAlamat    : "+alamat
                 +"\nNo Telpon : "+noTelp;
     }
+    
+    /**
+     * Method ini berfungsi untuk menambahkan harga dan pajak makanan, saat mengedit harga makanan.
+     * @param idx
+     * @return 
+     */
     
     public double getHargaMakanan(int idx){
         double harga = makanan.get(idx).getHarga();
@@ -95,6 +162,11 @@ public class TempatMakan {
         double result =  harga + ((pajak/100)*harga);
         return result;
     }
+    
+    /**
+     * Method ini berfungsi untuk menyimpan/merekam makanan apa saja yang di makan dengan jumlahnya.
+     * @return 
+     */
     
     public int getNMakanan(){
         this.nMakanan = makanan.size();
