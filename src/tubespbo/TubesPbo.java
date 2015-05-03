@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -28,6 +29,7 @@ import javax.swing.text.ComponentView;
  *
  * @author shinchank
  */
+
 public class TubesPbo extends javax.swing.JFrame {
     
     private Aplikasi app;
@@ -52,6 +54,33 @@ public class TubesPbo extends javax.swing.JFrame {
     }
     int xMouse;
     int yMouse;
+    
+    /**
+     * Method ini berfungsi untuk menampilkan panel yang digunakan.
+     * @param a
+     * @param b
+     * @param c
+     * @param d
+     * @param e
+     * @param f
+     * @param g
+     * @param h
+     * @param i
+     * @param j
+     * @param k
+     * @param l
+     * @param m
+     * @param n
+     * @param o
+     * @param p
+     * @param q
+     * @param r
+     * @param s
+     * @param t
+     * @param u
+     * @param v
+     * @param w 
+     */
     
     public void setView(boolean a, boolean b, boolean c, boolean d, boolean e,boolean f, boolean g, 
             boolean h, boolean i, boolean j, boolean k, boolean l, boolean m, boolean n, boolean o, 
