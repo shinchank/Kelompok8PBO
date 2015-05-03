@@ -1,0 +1,185 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package tubespbo;
+
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+
+
+
+/**
+ *
+ * @author Kelompok 8 Tubes PBO
+ */
+
+public class Grup {
+    private String namaGrup;
+    private int idGrup;
+    private final int maxAnggota = 10;
+    private Orang[] anggota = new Orang[maxAnggota];
+    private int nAnggota;
+
+    /**
+     * Constructor Grup yang berisi data berikut sebagai parameter:
+     * @param namaGrup 
+     */
+    
+    public Grup(String namaGrup) {
+        this.namaGrup = namaGrup;
+        this.idGrup++;
+        //anggota = new Orang[maxAnggota];
+        nAnggota = 0;
+    }
+
+    public Grup() {
+        
+    }
+    
+    /**
+     * Method berikut berfungsi untuk menambahkan anggota pada objek grup.
+     * @param o 
+     */
+    
+    public void addAnggota(Orang o){
+        try{
+            o.setId(namaGrup+"_"+o.getId());
+            anggota[nAnggota++] = o;
+        }catch(ArrayIndexOutOfBoundsException e){
+            System.out.println("Anggota Sudah 10 orang");
+        }
+    }
+    
+    /**
+     * 
+     * @return Nama grup
+     */
+    
+    public String getNamaGrup() {
+        return namaGrup;
+    }
+    
+    /**
+     * 
+     * @return ID Grup
+     */
+
+    public int getIdGrup() {
+        return idGrup;
+    }
+    
+    /**
+     * 
+     * @return Jumlah Anggota
+     */
+
+    public int getnAnggota() {
+        return nAnggota;
+    }
+    
+    /**
+     * 
+     * @param namaGrup 
+     */
+
+    public void setNamaGrup(String namaGrup) {
+        this.namaGrup = namaGrup;
+    }
+    
+    /**
+     * 
+     * @return Anggota
+     */
+
+    public Orang[] getAnggota(){
+        return anggota;
+//        String temp = "";
+//        for(int i = 0; i < nAnggota; i++){
+//            temp += anggota[i].toString()+"\n";
+//        }
+//        return temp;
+    }
+    
+    /**
+     * Method ini berfungsi untuk mengembalikan biaya-biaya yang harus dibayar.
+     * @return Patungan
+     */
+    
+    public String getPatungan(){
+        String temp = "";
+        for(int i = 0; i < nAnggota; i++){
+            temp+= anggota[i].toString()
+                    +"Biaya Sendiri : "+anggota[i].getBiayaSendiri()
+                    +"Biaya Patungan : "+anggota[i].getBiayaPatungan()
+                    +"Total Bayar : "+anggota[i].getBiayaPatungan()+anggota[i].getBiayaSendiri()+"\n";
+        }
+        return temp;
+    }
+    
+    /**
+     * Method ini berfungsi untuk menghitung biaya patungan yang harus dibayar perorang.
+     * Berdasarkan data/parameter berikut:
+     * @param harga
+     * @param pajak 
+     */
+    
+    public void bagiHarga(double harga, double pajak){
+        double biaya = (harga + (harga*pajak/100))/nAnggota;
+        try{
+            for(int i = 0; i<nAnggota; i++){
+                anggota[i].setBiayaPatungan(biaya);
+            }
+        }catch(Exception ex){
+            ex.printStackTrace(System.out);
+        }
+    }
+    
+    /**
+     * Method ini berfungsi untuk menghitung biaya yang harus dibayar perorang.
+     * Makanan yang dibayar adalah makanan yang orang tersebut makan sendiri.
+     * Berdasarkan data/parameter berikut:
+     * @param nama
+     * @param harga
+     * @param pajak 
+     */
+    
+    public void biayaSendiri(String nama, double harga, double pajak){
+        double biaya = harga + (harga*pajak/100);
+        try{
+            for (int i = 0; i < nAnggota; i++) {
+                if(anggota[i].getNama().toLowerCase().equals(nama.toLowerCase())){
+                    anggota[i].setBiayaSendiri(biaya);
+                }
+            }            
+        }catch(Exception ex){
+            ex.printStackTrace(System.out);
+        }
+
+    }
+    
+    /**
+     * Method ini berfungsi untuk mengembalikan nilai Biaya patungan dan Biaya Sendiri menjadi nol.
+     */
+    
+    public void resetPatungan(){
+        for(int i = 0; i < nAnggota; i++){
+            anggota[i].setBiayaPatungan(0);
+            anggota[i].setBiayaSendiri(0);
+        }
+    }
+    
+    /**
+     * Method ini berfungsi untuk menghitung semua total biaya yang harus dibayar perorang.
+     * @return Total
+     */
+    
+    public double getTotalBiaya(){
+        double total = 0;
+        for(int i = 0;  i < nAnggota; i++){
+            total += anggota[i].getBiayaSendiri()+anggota[i].getBiayaPatungan();
+        }
+        return total;
+    }
+}
