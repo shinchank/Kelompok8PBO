@@ -13,36 +13,78 @@ public class Makanan {
     private String nama;
     private double harga;
     private double pajak;
+    
+    /**
+     * Constructor Makanan, yang terdiri dari parameter:
+     * @param nama
+     * @param harga
+     * @param pajak 
+     */
 
     public Makanan(String nama, double harga, int pajak) {
         this.nama = nama;
         this.harga = harga;
         this.pajak = (double) pajak/100 * 100;
     }
+    
+    /**
+     * 
+     * @return Nama
+     */
 
     public String getNama() {
         return nama;
     }
+    
+    /**
+     * 
+     * @return Harga
+     */
 
     public double getHarga() {
         return harga;
     }
+    
+    /**
+     * 
+     * @return Pajak
+     */
 
     public double getPajak() {
         return pajak;
     }
+    
+    /**
+     * 
+     * @param nama 
+     */
 
     public void setNama(String nama) {
         this.nama = nama;
     }
+    
+    /**
+     * 
+     * @param harga 
+     */
 
     public void setHarga(double harga) {
         this.harga = harga;
     }
+    
+    /**
+     * 
+     * @param pajak 
+     */
 
     public void setPajak(double pajak) {
         this.pajak = pajak;
     }
+    
+    /**
+     * 
+     * @return toString yang mengembalikan/ menampilkan Nama, Harga dan Pajak
+     */
     
     public String toString(){
         return "Nama    : "+nama
