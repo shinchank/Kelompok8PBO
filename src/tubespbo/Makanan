@@ -7,7 +7,7 @@ package tubespbo;
 
 /**
  *
- * @author shinchank
+ * @author Kelompok 8 Tubes PBO
  */
 public class Makanan {
     private String nama;
